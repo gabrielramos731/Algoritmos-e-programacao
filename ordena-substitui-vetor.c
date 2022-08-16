@@ -37,5 +37,5 @@ void ordena(float vet[5]){
             vet[i]=vet[i+1];
         }
         vet[4]=temp;
-    }
+    } 
 }
