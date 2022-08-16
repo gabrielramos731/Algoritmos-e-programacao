@@ -22,3 +22,4 @@ void func(float vet[3], float *ma, float *me, float *med){
     }
     *med = *med/i;
 }
+ 
