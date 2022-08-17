@@ -16,7 +16,7 @@ int main(){
 //substitui os negativos por 0
 void func(float vet[5]){
     int i;
-    for(i=0; i<5; i++)   
+    for(i=0; i<5; i++)
         if(vet[i]<0)
             vet[i]=0;   //substituiu os negativos
 }
@@ -32,10 +32,8 @@ void ordena(float vet[5]){
                 vet[j]=temp;
             }
     while(vet[0]==0){   //coloca os 0's no final do vetor
-        for(i=0;i<4;i++){
-            temp=0;
+        for(i=0;i<4;i++)
             vet[i]=vet[i+1];
-        }
-        vet[4]=temp;
-    } 
+        vet[4]=0;
+    }
 }
