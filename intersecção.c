@@ -28,8 +28,8 @@ void ordena(int *vet1, int tamanho){
 //faz a intersecção dos vetores
 void intersec(int *vet1, int *vet2, int *vet_intersec, int *k, int tamanho){
     int i, j;   //controladores de vet1 e vet2
-    for(i=0;i<tamanho;i++){
-        for(j=0;j<tamanho;j++){
+    for(i=0;i<tamanho;i++){   //trava um valor de vet1
+        for(j=0;j<tamanho;j++){   //percorre o vet2
             if(vet1[i]==vet1[i-1])   //evitar valor repetido no primeiro vetor
                 break;
             if(vet1[i]==vet2[j]){
