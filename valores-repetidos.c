@@ -51,3 +51,4 @@ void batata_rep(int *vet, int *vet_rep, int *k){
         }
     }
 }
+//teste
