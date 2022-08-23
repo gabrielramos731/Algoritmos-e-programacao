@@ -52,3 +52,4 @@ void ordena(int *vet_intersec, int cont_inter){
         }
     }
 }
+//testando o versionamento do git
