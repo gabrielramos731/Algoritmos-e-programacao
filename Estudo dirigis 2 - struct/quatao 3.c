@@ -19,8 +19,8 @@ int main(){
     for(i=0;i<3;i++){
         printf("Aluno: %s\nIdade: %d\nNota: %.2f\n", dados_aluno[i].nome, dados_aluno[i].idade, dados_aluno[i].nota);
         if(dados_aluno[i].nota>=6)
-            printf("APROVADO!\n");
+            printf("APROVADO!\n\n");
         else
-            printf("REPROVADO!\n");
+            printf("REPROVADO!\n\n");
     }
 }
