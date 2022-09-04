@@ -9,6 +9,7 @@ struct dados{
 
 void entrada_dados(struct dados *dados_alunos, int n);
 void busca(struct dados *dados_alunos, int n, char *nome_maior_p1, char *nome_maior_med, char *nome_menor_med);
+void status_aluno(char *nome_aluno, float med);
 
 int main(){
     struct dados dados_alunos[3];
@@ -16,9 +17,10 @@ int main(){
 
     entrada_dados(dados_alunos, 3);
     busca(dados_alunos, 3, nome_maior_p1, nome_maior_med, nome_menor_med);
-    printf("maior p1: %s\nmaior_med: %s\nmenor_med: %s", nome_maior_p1, nome_maior_med, nome_menor_med);
+    printf("\nmaior p1: %s\nmaior_med: %s\nmenor_med: %s", nome_maior_p1, nome_maior_med, nome_menor_med);
 }
 
+//recebe os valores para 'struct dados'
 void entrada_dados(struct dados *dados_alunos, int n){
     int i;
     for(i=0;i<n;i++){
@@ -39,6 +41,8 @@ void busca(struct dados *dados_alunos, int n, char *nome_maior_p1, char *nome_ma
         }
         
         med=(dados_alunos[i].nota1 + dados_alunos[i].nota2 + dados_alunos[i].nota3) / n;   //busca maior e menor media
+        status_aluno(dados_alunos[i].nome,med);   //apresenta o status do aluno
+
         if(med>maior_med){   
             strcpy(nome_maior_med, dados_alunos[i].nome);   //faz um copia do nome para 'nome_maior_med'
             maior_med=med;   //atualiza o valor da maior media
@@ -48,4 +52,12 @@ void busca(struct dados *dados_alunos, int n, char *nome_maior_p1, char *nome_ma
             menor_med=med;   //atualiza o valor da menor media
         }
     }
+}
+
+void status_aluno(char *nome_aluno, float med){
+    printf("\nAluno: %s\nMedia: %.2f\n", nome_aluno, med);
+    if(med>=6)
+        printf("APROVADO!\n");
+    else
+        printf("REPROVADO\n");
 }
