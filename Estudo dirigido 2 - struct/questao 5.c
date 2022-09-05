@@ -31,7 +31,7 @@ void entrada_dados(struct dados *dados_alunos, int n){
 
 //busca os nomes de maior_p1, meir_med, menor_med
 void busca(struct dados *dados_alunos, int n, char *nome_maior_p1, char *nome_maior_med, char *nome_menor_med){
-    float maior_p1 = dados_alunos[0].nota1;
+    float maior_p1=dados_alunos[0].nota1;
     float menor_med=999; float maior_med=0; float med;
 
     for(int i=0;i<n;i++){    //'nome' maior nota p1
