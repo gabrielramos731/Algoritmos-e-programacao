@@ -36,7 +36,7 @@ void ordenaDados(struct dados *dadosPessoais, struct dados temp, int n){
     for(i=0; i<n-1; i++){
         for(j=i+1; j<n; j++){
             if(strcmp(dadosPessoais[i].nome, dadosPessoais[j].nome)>0){
-                temp = dadosPessoais[i];
+                temp=dadosPessoais[i];
                 dadosPessoais[i]=dadosPessoais[j];
                 dadosPessoais[j]=temp;
             }
