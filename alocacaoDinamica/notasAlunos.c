@@ -12,8 +12,13 @@ int main(){
 
     grades = assignsGrades(n, &greatestGrade, &average);
 
-    for(i=0; i<n; i++)
-        printf("%.2f ", grades[i]);
+    for(i=0; i<n; i++){
+        printf("%.2f -> ", grades[i]);
+        if(grades[i]>=6)
+            printf("APPROVED!\n");
+        else
+            printf("FAILED!\n");
+    }
     printf("\nAverage: %.2f\nGreatest grade: %.2f", average, greatestGrade);
 }
 
