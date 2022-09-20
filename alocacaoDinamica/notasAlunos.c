@@ -1,9 +1,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-//Assigns n grades to an array and prints the greatest grade and avarage grade 
 void * assignsGrades(int n, float *greatestGrade, float *average);
 
+//Assigns n grades to an array and prints the greatest grade and avarage grade 
 int main(){
     float *grades, greatestGrade=0, average=0;
     int n, i;
@@ -20,6 +20,8 @@ int main(){
             printf("FAILED!\n");
     }
     printf("\nAverage: %.2f\nGreatest grade: %.2f", average, greatestGrade);
+    
+    free(grades);
 }
 
 //allocates the array and assigns the values of greatesGrade and mean
