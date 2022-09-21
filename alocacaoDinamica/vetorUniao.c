@@ -25,19 +25,22 @@ int main(){
     ordena(vetUni, tamVetUni);
     for(i=0; i<n1+n2; i++)
         printf("%d ", vetUni[i]);
-
+    free(vetUni);   //desaloca vetUni
 }
 
+//cria e retorna o vetor uniao
 void * uniao(int *vet1, int n1, int *vet2, int n2){
         int i, j;
         int *vetUniF;
 
-        vetUniF = (int *) realloc(vet1, (n1+n2)*sizeof(int));
+        vetUniF = (int *) realloc(vet1, (n1+n2)*sizeof(int));   //realoca e preenche vetUniF
         for(i=n1, j=0; j<n2; i++, j++)
             vetUniF[i] = vet2[j];
+        free(vet2);   //desaloca vet2
         return vetUniF;
 }
 
+//ordena o vetor uniao
 void ordena(int *vet, int tam){
     int temp, i, j;
     
