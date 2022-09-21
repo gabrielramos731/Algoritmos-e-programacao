@@ -2,9 +2,10 @@
 #include<stdlib.h>
 
 void * uniao(int *vet1, int n1, int *vet2, int n2);
+void ordena(int *vet, int tam);
 
 int main(){
-    int n1, n2, i;
+    int n1, n2, i, tamVetUni;
     int *vet1, *vet2, *vetUni;
 
     printf("Quantidade vet1 e vet2: ");
@@ -19,7 +20,9 @@ int main(){
     for(i=0; i<n2; i++)
         scanf("%d", &vet2[i]);
     
+    tamVetUni = n1+n2;
     vetUni = uniao(vet1, n1, vet2, n2);
+    ordena(vetUni, tamVetUni);
     for(i=0; i<n1+n2; i++)
         printf("%d ", vetUni[i]);
 
@@ -30,8 +33,21 @@ void * uniao(int *vet1, int n1, int *vet2, int n2){
         int *vetUniF;
 
         vetUniF = (int *) realloc(vet1, (n1+n2)*sizeof(int));
-        for(i=n1, j=0; j<n2; i++, j++){
+        for(i=n1, j=0; j<n2; i++, j++)
             vetUniF[i] = vet2[j];
-        }
         return vetUniF;
+}
+
+void ordena(int *vet, int tam){
+    int temp, i, j;
+    
+    for(i=0; i<tam-1; i++){
+        for(j=i+1; j<tam; j++){
+            if(vet[i]>vet[j]){
+                temp = vet[i];
+                vet[i] = vet[j];
+                vet[j] = temp;
+            }
+        }
+    }
 }
