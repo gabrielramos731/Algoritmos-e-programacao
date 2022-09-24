@@ -3,9 +3,10 @@
 
 void * uniao(int *vet1, int n1, int *vet2, int n2);
 void ordena(int *vet, int tam);
+void repetidos(int *vet, int tam, int *vetSemRep, int *j);
 
 int main(){
-    int n1, n2, i, tamVetUni;
+    int n1, n2, i, tamVetUni, j = 0;
     int *vet1, *vet2, *vetUni;
 
     printf("Quantidade vet1 e vet2: ");
@@ -23,8 +24,12 @@ int main(){
     tamVetUni = n1+n2;
     vetUni = uniao(vet1, n1, vet2, n2);
     ordena(vetUni, tamVetUni);
-    for(i=0; i<n1+n2; i++)
-        printf("%d ", vetUni[i]);
+    int vetSemRep[tamVetUni];
+    repetidos(vetUni, tamVetUni, vetSemRep, &j);
+
+    printf("Vetor uniao: \n");
+    for(i=0; i<j; i++)
+        printf("%d ", vetSemRep[i]);
     free(vetUni);   //desaloca vetUni
 }
 
@@ -53,4 +58,19 @@ void ordena(int *vet, int tam){
             }
         }
     }
+}
+
+void repetidos(int *vet, int tam, int *vetSemRep, int *j){
+    int i;
+
+    for(i=0; i<tam; i++){
+        if(vet[i]==vet[i-1]){
+            continue;
+        }
+        else{
+            vetSemRep[*j] = vet[i];
+            *j+=1;
+        }
+    }
+
 }
