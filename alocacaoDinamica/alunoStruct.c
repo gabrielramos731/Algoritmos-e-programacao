@@ -12,6 +12,7 @@ int main(){
     aluno *vetAlunos;
     int n, i;
 
+    printf("Quantos aluno: ");
     scanf("%d", &n);
     vetAlunos = recebeDados(n);
 
