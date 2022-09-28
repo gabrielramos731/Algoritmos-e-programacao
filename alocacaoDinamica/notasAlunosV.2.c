@@ -20,7 +20,7 @@ int main(){
     for(i=0; i<quantAlunos; i++){
         aluno[i].notas = (float *) calloc(quantNotas, sizeof(float));
         for(j=0; j<quantNotas; j++){
-            scanf("%f ", &aluno[i].notas[j]);
+            scanf("%f", &aluno[i].notas[j]);
         }
     }
 }
