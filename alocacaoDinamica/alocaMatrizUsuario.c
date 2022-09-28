@@ -2,9 +2,12 @@
 #include<stdlib.h>
 
 float **alocaMatriz(int linhas, int colunas);
+void preencheMatriz(float **mat, int linhas, int colunas);
+void freeMatriz(float **mat, int linhas);
 
 int main(){
     int linhas, colunas;
+    int i, j;
     float **mat;
 
     printf("Quantas linhas: ");
@@ -14,6 +17,15 @@ int main(){
 
     mat = alocaMatriz(linhas,colunas);
     preencheMatriz(mat, linhas, colunas);
+
+    for(i=0; i<linhas; i++){
+        for(j=0; j<colunas; j++){
+            printf("%.1f ", mat[i][j]);
+        }
+        printf("\n");
+    }
+
+    freeMatriz(mat,linhas);
 }
 
 float **alocaMatriz(int linhas, int colunas){
@@ -37,3 +49,13 @@ void preencheMatriz(float **mat, int linhas, int colunas){
         }
     }
 }
+
+void freeMatriz(float **mat, int linhas){
+
+    int i;
+
+    for(i=0; i<linhas; i++)
+        free(mat[i]);
+    free(mat);
+}
+
