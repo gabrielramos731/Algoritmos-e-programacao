@@ -34,7 +34,6 @@ int * lerAposta(int quantApostas){
     return vetApostas;
 }
 
-//precisa sortear números diferente (mudar)
 int * sorteiaValores(int quantApostas){
     int *vetSorteados;
     int i, j, valor, cont = 0;
