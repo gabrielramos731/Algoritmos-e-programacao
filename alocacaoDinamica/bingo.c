@@ -19,8 +19,14 @@ int * lerAposta(int quantApostas){
     int i;
 
     vetApostas = (int *) calloc(quantApostas, sizeof(int));
-    printf("Digite seus numeros: ");
-    for(i=0; i<quantApostas; i++)
+    printf("Digite seus numeros (entre 0 e 100): ");
+    for(i=0; i<quantApostas;){
         scanf("%d", &vetApostas[i]);
+        if(vetApostas[i]<0 || vetApostas[i]>100){
+            printf("Valor invalido\n");
+            continue;
+        }
+        i++;
+    }
     return vetApostas;
 }
