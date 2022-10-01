@@ -4,9 +4,10 @@
 
 int * lerAposta(int quantApostas);
 int * sorteiaValores(int quantApostas);
+int * comparaAposta(int *valoresApostados, int quantApostas, int *valoresSorteados, int n, int *contAcertos);
 
 int main(){
-    int *valoresApostados, *valoresSorteados, *comparaAposta, *contAcertos;
+    int *valoresApostados, *valoresSorteados, *contAcertos = 0, *vetAcertos;
     int quantApostas, i;
 
     printf("Quantos numeros deseja apostar: ");
@@ -14,7 +15,13 @@ int main(){
 
     valoresApostados = lerAposta(quantApostas);
     valoresSorteados = sorteiaValores(20);
-    
+    vetAcertos = comparaAposta(valoresApostados,quantApostas,valoresSorteados,20,&contAcertos);
+
+    printf("Voce acertou %d valor(es)!\n", contAcertos);
+
+    for(i=0; i<contAcertos; i++)
+        printf("%d ", vetAcertos[i]);
+    free(vetAcertos);
 }
 
 int * lerAposta(int quantApostas){
@@ -57,3 +64,23 @@ int * sorteiaValores(int n){
     return vetSorteados;
 }
 
+int * comparaAposta(int *valoresApostados, int quantApostas, int *valoresSorteados, int n, int *contAcertos){
+    int *vetAcertos;
+    int i, j;
+
+    vetAcertos = (int *) calloc(n, sizeof(int));
+    for(i=0; i<quantApostas; i++){
+        for(j=0; j<n; j++){
+            if(valoresApostados[i]==valoresSorteados[j]){
+                vetAcertos[*contAcertos] = valoresApostados[i];
+                *contAcertos+=1;
+                break;
+            }
+        }
+    }
+    vetAcertos = (int *) realloc(vetAcertos, *contAcertos*sizeof(int));
+    free(valoresApostados);
+    free(valoresSorteados);
+
+    return vetAcertos;
+}
