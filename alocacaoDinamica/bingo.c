@@ -6,15 +6,15 @@ int * lerAposta(int quantApostas);
 int * sorteiaValores(int quantApostas);
 
 int main(){
-    int *valoresApostados, *valoresSorteados;
-    int quantApostas;
+    int *valoresApostados, *valoresSorteados, *comparaAposta, *contAcertos;
+    int quantApostas, i;
 
     printf("Quantos numeros deseja apostar: ");
     scanf("%d", &quantApostas);
 
     valoresApostados = lerAposta(quantApostas);
-    valoresSorteados = sorteiaValores(quantApostas);
-
+    valoresSorteados = sorteiaValores(20);
+    
 }
 
 int * lerAposta(int quantApostas){
@@ -34,13 +34,13 @@ int * lerAposta(int quantApostas){
     return vetApostas;
 }
 
-int * sorteiaValores(int quantApostas){
+int * sorteiaValores(int n){
     int *vetSorteados;
     int i, j, valor, cont = 0;
 
     srand(time(NULL));
-    vetSorteados = (int *) calloc(quantApostas, sizeof(int));
-    for(i=0; i<quantApostas; ){
+    vetSorteados = (int *) calloc(n, sizeof(int));
+    for(i=0; i<n; ){
         valor = rand()%101;
         for(j=0; j<i; j++){
             if(valor==vetSorteados[j]){
