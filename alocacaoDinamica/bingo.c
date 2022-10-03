@@ -7,7 +7,7 @@ int * sorteiaValores(int quantApostas);
 int * comparaAposta(int *valoresApostados, int quantApostas, int *valoresSorteados, int n, int *contAcertos);
 
 int main(){
-    int *valoresApostados, *valoresSorteados, *contAcertos = 0, *vetAcertos;
+    int *valoresApostados, *valoresSorteados, contAcertos = 0, *vetAcertos;
     int quantApostas, i;
 
     printf("Quantos numeros deseja apostar: ");
