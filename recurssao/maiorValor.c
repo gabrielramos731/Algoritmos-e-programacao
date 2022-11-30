@@ -3,23 +3,21 @@
 int main(){
 
   int vet[10] = {1,2,3,15,5,6,7,11,9,10};
-  int cont = 0;
   int maior = vet[0];
   int TAM = 10;
-  int i;
   
-  maior = encontraMaior(vet, TAM, cont, maior);
+  maior = encontraMaior(vet, TAM, maior);
 
   printf("%d", maior);  //15
 }
 
-int encontraMaior(int *vet, int tam, int cont, int maior){
+int encontraMaior(int *vet, int tam, int maior){
 
-  if(cont == tam)
+  if(tam == 0)
     return maior;
 
-  else if(vet[cont] > maior)
-    maior = vet[cont];
+  else if(vet[tam] > maior)
+    maior = vet[tam];
   
-  return encontraMaior(vet, tam, cont+1, maior);
+  return encontraMaior(vet, tam-1, maior);
 }
