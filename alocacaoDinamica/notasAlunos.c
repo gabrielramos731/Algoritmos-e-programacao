@@ -3,7 +3,7 @@
 
 void * assignsGrades(int n, float *greatestGrade, float *average);
 
-//Assigns n grades to an array and prints the greatest grade and avarage grade 
+//Assigns n grades to an array and prints the greatest grade and the avarage grade 
 int main(){
     float *grades, greatestGrade=0, average=0;
     int n, i;

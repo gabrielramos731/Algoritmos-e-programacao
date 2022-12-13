@@ -9,7 +9,7 @@ int main(){
   printf("%d", quantPassos);
 }
 
-int moverDiscos(int n){
+int moverDiscos(int n){    
 
   if(n == 1)
     return 1;
